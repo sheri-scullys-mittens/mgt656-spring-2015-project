@@ -3,7 +3,7 @@
 This is the starter project for MGT 645. You'll fork this
 code in order to get started with your project. 
 
-## Getting started
+## Getting started!
 
 For the following instructions, we assume that you are logged
 into the virtual machine you are using for MGT 645. 
