@@ -2,10 +2,14 @@
       text-align: center;
       background: url('http://dash.ga.co/assets/jeff-bg.png');
       background-size: cover;
-      color: white;
+      color: #e6d273;
     }
+body {
+  color: #417282;
+  background: #e6d273;
+}
     a {
-      color: white;
+      color: #c92434;
     }
     h1 {
       font-size: 70px;
