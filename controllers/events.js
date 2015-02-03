@@ -47,7 +47,7 @@ function listEvents(request, response) {
  */
 function newEvent(request, response){
   var contextData = {
-    'title': 'Create an Event'
+    'title': 'Create New Event'
   };
   response.render('create-event.html', contextData);
 }

@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
-  <div>
+  <p>
     The time is now {{time}}.
-  </div>
-  <div>
+  </p>
+  <p>
+    List of events
     {% include "fragments/events-list.html" %}
-  </div>
-  <div>
+  </p>
+  <p>
     <a href="/events/new">Create a new event</a>
-  </div>
+  </p>
 
 {% endblock %}
