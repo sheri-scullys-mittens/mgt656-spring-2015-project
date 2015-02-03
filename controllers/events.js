@@ -35,6 +35,7 @@ var allowedDateInfo = {
 function listEvents(request, response) {
   var currentTime = new Date();
   var contextData = {
+    'title': 'List of Events',
     'events': events.all,
     'time': currentTime
   };
@@ -45,7 +46,9 @@ function listEvents(request, response) {
  * Controller that renders a page for creating new events.
  */
 function newEvent(request, response){
-  var contextData = {};
+  var contextData = {
+    'title': 'New Event'
+  };
   response.render('create-event.html', contextData);
 }
 
