@@ -3,7 +3,7 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta name="description" content="Sheri Scully's Mittens">
+    <meta name="description" content="{{title}}">
     <meta name="author" content="David, Gordon and Rebecca">
   </head>
 
@@ -17,7 +17,7 @@
     {% endblock %}
 
     {% block mainContent %}
-      <section>Welcome to {{ title }}. {{tagline}}</section>
+      <section>Welcome to {{title}}. {{tagline}}</section>
     {% endblock %}
 
     {% block footer %}
