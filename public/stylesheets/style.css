@@ -2,6 +2,7 @@ header {
   text-align: center;
   background-size: cover;
   background-color: #c92434;
+  color: #e6d273;
 }
 
 body {
@@ -27,7 +28,6 @@ img {
   margin: 40px 0px 0px 0px;
   border: 7px solid white;
   border-radius: 10px;
-  padding: 10px;
 }
 
 ul {
