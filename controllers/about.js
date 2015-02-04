@@ -4,7 +4,9 @@
  * Controller that renders our about page.
  */
 function about (request, response) {
-  var contextData = {};
+  var contextData = {
+    'title': 'About'
+  };
   response.render('about.html', contextData);
 }
 

@@ -35,6 +35,7 @@ var allowedDateInfo = {
 function listEvents(request, response) {
   var currentTime = new Date();
   var contextData = {
+    'title': 'Events',
     'events': events.all,
     'time': currentTime
   };
@@ -45,7 +46,9 @@ function listEvents(request, response) {
  * Controller that renders a page for creating new events.
  */
 function newEvent(request, response){
-  var contextData = {};
+  var contextData = {
+    'title': 'Create New Event'
+  };
   response.render('create-event.html', contextData);
 }
 
@@ -59,6 +62,7 @@ function saveEvent(request, response){
 
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
+    contextData.title = "Create New Event";
   }
 
 
