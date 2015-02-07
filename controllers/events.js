@@ -8,7 +8,7 @@ var validator = require('validator');
 // used a first.
 //
 var allowedDateInfo = {
-  months: {
+  /*months: {
     0: 'January',
     1: 'February',
     2: 'March',
@@ -21,7 +21,8 @@ var allowedDateInfo = {
     9: 'October',
     10: 'November',
     11: 'December'
-  },
+  },*/
+  months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   minutes: [0, 30],
   hours: [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
