@@ -72,6 +72,10 @@ function saveEvent(request, response){
       location: request.body.location,
       image: request.body.image,
       date: new Date(),
+      date.setMinutes(): request.body.minutes,
+      date.setHours(): request.body.hours,
+      date.setDate(): request.body.days,
+      date.setMonth(): request.body.months,
       attending: []
     };
     events.all.push(newEvent);
