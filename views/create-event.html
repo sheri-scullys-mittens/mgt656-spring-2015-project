@@ -16,25 +16,25 @@
   <p>
   	<form id="create-event" method="POST">
       <label for="title">Event title:</label>
-      <input type="text" name="title" placeholder="Event title" size="49"><br><br>
+      <input type="text" name="title" placeholder="Event title" size="50"><br><br>
       <label for="location">Location:</label>      
-      <input type="text" name="location" placeholder="Location" size="49"><br><br>
-      <label for="month">Time:</label>
-      <select type="select" name="month">
-  <option value="1">January</option>
-  <option value="2">February</option>
-  <option value="3">March</option>
-  <option value="4">April</option>
-  <option value="5">May</option>
-  <option value="6">June</option>
-  <option value="7">July</option>
-  <option value="8">August</option>
-  <option value="9">September</option>
-  <option value="10">October</option>
-  <option value="11">November</option>
-  <option value="12">December</option>
+      <input type="text" name="location" placeholder="Location" size="50"><br><br>
+      <label for="months">Time:</label>
+      <select type="select" name="months">
+  <option value="0">January</option>
+  <option value="1">February</option>
+  <option value="2">March</option>
+  <option value="3">April</option>
+  <option value="4">May</option>
+  <option value="5">June</option>
+  <option value="6">July</option>
+  <option value="7">August</option>
+  <option value="8">September</option>
+  <option value="9">October</option>
+  <option value="10">November</option>
+  <option value="11">December</option>
     </select>
-      <select type="select" name="day">
+      <select type="select" name="days">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -67,22 +67,22 @@
   <option value="30">30</option>
   <option value="31">31</option>
     </select>, 
-     <select type="select" name="year">
+     <select type="select" name="years">
   <option value="2015">2015</option>
   <option value="2016">2016</option>
     </select>
 at 
-      <select type="select" name="hour">
-  <option value="00">00</option>
-  <option value="01">01</option>
-  <option value="02">02</option>
-  <option value="03">03</option>
-  <option value="04">04</option>
-  <option value="05">05</option>
-  <option value="06">06</option>
-  <option value="07">07</option>
-  <option value="08">08</option>
-  <option value="09">09</option>
+      <select type="select" name="hours">
+  <option value="0">00</option>
+  <option value="1">01</option>
+  <option value="2">02</option>
+  <option value="3">03</option>
+  <option value="4">04</option>
+  <option value="5">05</option>
+  <option value="6">06</option>
+  <option value="7">07</option>
+  <option value="8">08</option>
+  <option value="9">09</option>
   <option value="10">10</option>
   <option value="11">11</option>
   <option value="12">12</option>
@@ -98,7 +98,7 @@ at
   <option value="22">22</option>
   <option value="23">23</option>
     </select>:
-          <select type="select" name="minute">
+          <select type="select" name="minutes">
   <option value="00">00</option>
   <option value="30">30</option>
     </select><br><br>
