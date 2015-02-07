@@ -59,13 +59,46 @@ function newEvent(request, response){
  * our global list of events.
  */
 function saveEvent(request, response){
-  var contextData = {errors: []};
+  var contextData = {
+    errors: [],
+    title: "Create New Event"
+  };
 
   if (validator.isLength(request.body.title, 5, 50) === false) {
-    contextData.errors.push('Your title should be between 5 and 100 letters.');
-    contextData.title = "Create New Event";
+    contextData.errors.push('Your title should be between 5 and 50 letters.');
+  }
+  
+  if (validator.isLength(request.body.location, 5, 50) === false) {
+    contextData.errors.push('Your location should be between 5 and 50 letters.');
+  }
+  
+  if (validator.isInt(request.body.days) === false) {
+    contextData.errors.push('Your date should be an integer.');
+  }
+  
+  if (validator.isLength(request.body.days, 1, 31) === false) {
+    contextData.errors.push('Your date should be between 1 and 31.');
+  }
+  
+  if (validator.isIn(request.body.months,allowedDateInfo.months) === false) {
+    contextData.errors.push('Month must be between 0 and 11.');
+  }
+  
+  if (validator.isIn(request.body.minutes,allowedDateInfo.minutes) === false) {
+    contextData.errors.push('Minutes must be 0 or 30.');
   }
 
+  if (validator.isIn(request.body.hours,allowedDateInfo.hours) === false) {
+    contextData.errors.push('Hours must be an integer between 0 and 23.');
+  }
+  
+  if (validator.isIn(request.body.years,allowedDateInfo.years) === false) {
+    contextData.errors.push('Year must be 2015 or 2016.');
+  }
+  
+   if (validator.isInt(request.body.years) === false) {
+    contextData.errors.push('Your year should be an integer.');
+  }
 
   if (contextData.errors.length === 0) {
     var newEvent = {
