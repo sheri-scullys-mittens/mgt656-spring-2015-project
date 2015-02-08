@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block mainContent %}
+  <p>
+    <img src="{{image}}">
+  </p>
+  <p>
+    <time datetime="{{date}}">Date: {{date|prettyDate}}</time>
+  </p>
+  <p>
+    Location: {{location}}
+  </p>
+  <p>
+    Attending: {{attending.length}} people
+    <ul>
+      {% for attending in attending %}
+      <li>
+        {{attending}}
+      </li>
+      {$ endfor %}
+    </ul>
+  </p>
+  <p>
+    <a href="/events/new">Create a new event</a>
+  </p>
+
+{% endblock %}
