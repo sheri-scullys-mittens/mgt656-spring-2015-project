@@ -117,6 +117,7 @@ function saveEvent(request, response){
     events.all.push(newEvent);
     response.redirect('/events');
   }else{
+    
     response.render('create-event.html', contextData);
   }
 }
@@ -126,7 +127,7 @@ function eventDetail (request, response) {
   if (ev === null) {
     response.status(404).send('No such event');
   }
-  response.render('event-detail.html', {event: ev});
+  response.render('event-detail.html', ev);
 }
 
 function rsvp (request, response){
