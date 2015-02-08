@@ -116,7 +116,7 @@ function saveEvent(request, response){
     newEvent.date.setMonth(request.body.months);
     newEvent.date.setFullYear(request.body.years);
     events.all.push(newEvent);
-    response.redirect('/events');
+    response.redirect('/events/' + newEvent.id);
   }else{
     
     response.render('create-event.html', contextData);
