@@ -7,7 +7,8 @@ var events = require('../models/events');
  */
 function index (request, response) {
   var contextData = {
-    'title': 'Home'
+    'title': 'Home',
+    'events': events.all
   };
   response.render('index.html', contextData);
 }

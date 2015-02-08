@@ -107,13 +107,13 @@ function saveEvent(request, response){
       location: request.body.location,
       image: request.body.image,
       date: new Date(),
-     /** date.setMinutes(): request.body.minutes,
-      date.setHours(): request.body.hours,
-      date.setDate(): request.body.days,
-      date.setMonth(): request.body.months,
-      date.setFullYear(): request.body.years,*/
       attending: []
     };
+    newEvent.date.setMinutes(request.body.minutes);
+    newEvent.date.setHours(request.body.hours);
+    newEvent.date.setDate(request.body.days);
+    newEvent.date.setMonth(request.body.months);
+    newEvent.date.setFullYear(request.body.years);
     events.all.push(newEvent);
     response.redirect('/events');
   }else{
