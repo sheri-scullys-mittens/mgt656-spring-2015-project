@@ -27,8 +27,8 @@
       <input type="text" name="image" placeholder="Image URL" size="50">
     </p>
     <p>
-      <label for="months">Date and time:</label>
-      <select type="select" name="months">
+    Date:  <label for="months">MM</label> 
+      <select type="select" name="months" id="months">
         <option value="0">January</option>
         <option value="1">February</option>
         <option value="2">March</option>
@@ -42,7 +42,8 @@
         <option value="10">November</option>
         <option value="11">December</option>
       </select>
-      <select type="select" name="days">
+       <label for="days">DD</label> 
+      <select type="select" name="days" id="days">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -75,11 +76,15 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select>, 
-      <select type="select" name="years">
+       <label for="years">YYYY</label> 
+      <select type="select" name="years" id="years">
         <option value="2015">2015</option>
         <option value="2016">2016</option>
-      </select> at 
-      <select type="select" name="hours">
+      </select> 
+      </p>
+      <p>Time: 
+      <label for="hours">hh</label> 
+      <select type="select" name="hours" id="hours">
         <option value="0">00</option>
         <option value="1">01</option>
         <option value="2">02</option>
@@ -104,8 +109,9 @@
         <option value="21">21</option>
         <option value="22">22</option>
         <option value="23">23</option>
-      </select>:
-      <select type="select" name="minutes">
+      </select>
+       <label for="minutes">mm</label> 
+      <select type="select" name="minutes" id="minutes">
         <option value="0">00</option>
         <option value="30">30</option>
       </select>
