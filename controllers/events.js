@@ -9,7 +9,7 @@ var validator = require('validator');
 //
 var allowedDateInfo = {
   months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  minutes: [0, 30],
+  minute: [0, 30],
   hours: [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
     12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
@@ -71,8 +71,8 @@ function saveEvent(request, response){
     contextData.errors.push('Month must be between 0 and 11.');
   }
   
-  if (validator.isIn(request.body.minutes,allowedDateInfo.minutes) === false) {
-    contextData.errors.push('Minutes must be 0 or 30.');
+  if (validator.isIn(request.body.minute,allowedDateInfo.minute) === false) {
+    contextData.errors.push('Minute must be 0 or 30.');
   }
 
   if (validator.isIn(request.body.hours,allowedDateInfo.hours) === false) {
@@ -96,7 +96,7 @@ function saveEvent(request, response){
       date: new Date(),
       attending: []
     };
-    newEvent.date.setMinutes(request.body.minutes);
+    newEvent.date.setMinutes(request.body.minute);
     newEvent.date.setHours(request.body.hours);
     newEvent.date.setDate(request.body.days);
     newEvent.date.setMonth(request.body.months);
