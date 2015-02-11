@@ -8,13 +8,13 @@ var validator = require('validator');
 // used a first.
 //
 var allowedDateInfo = {
-  months: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  month: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   minute: [0, 30],
-  hours: [
+  hour: [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
     12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
   ],
-  years: [2015, 2016]
+  year: [2015, 2016]
 };
 
 /**
@@ -59,15 +59,15 @@ function saveEvent(request, response){
     contextData.errors.push('Your location should be between 5 and 50 letters.');
   }
   
-  if (validator.isInt(request.body.days) === false) {
+  if (validator.isInt(request.body.day) === false) {
     contextData.errors.push('Your date should be an integer.');
   }
   
-  if (validator.isLength(request.body.days, 1, 31) === false) {
+  if (validator.isLength(request.body.day, 1, 31) === false) {
     contextData.errors.push('Your date should be between 1 and 31.');
   }
   
-  if (validator.isIn(request.body.months,allowedDateInfo.months) === false) {
+  if (validator.isIn(request.body.month,allowedDateInfo.month) === false) {
     contextData.errors.push('Month must be between 0 and 11.');
   }
   
@@ -75,15 +75,15 @@ function saveEvent(request, response){
     contextData.errors.push('Minute must be 0 or 30.');
   }
 
-  if (validator.isIn(request.body.hours,allowedDateInfo.hours) === false) {
+  if (validator.isIn(request.body.hour,allowedDateInfo.hour) === false) {
     contextData.errors.push('Hours must be an integer between 0 and 23.');
   }
   
-  if (validator.isIn(request.body.years,allowedDateInfo.years) === false) {
+  if (validator.isIn(request.body.year,allowedDateInfo.year) === false) {
     contextData.errors.push('Year must be 2015 or 2016.');
   }
   
-   if (validator.isInt(request.body.years) === false) {
+   if (validator.isInt(request.body.year) === false) {
     contextData.errors.push('Your year should be an integer.');
   }
 
@@ -97,10 +97,10 @@ function saveEvent(request, response){
       attending: []
     };
     newEvent.date.setMinutes(request.body.minute);
-    newEvent.date.setHours(request.body.hours);
-    newEvent.date.setDate(request.body.days);
-    newEvent.date.setMonth(request.body.months);
-    newEvent.date.setFullYear(request.body.years);
+    newEvent.date.setHours(request.body.hour);
+    newEvent.date.setDate(request.body.day);
+    newEvent.date.setMonth(request.body.month);
+    newEvent.date.setFullYear(request.body.year);
     events.all.push(newEvent);
     response.redirect('/events/' + newEvent.id);
   }else{
