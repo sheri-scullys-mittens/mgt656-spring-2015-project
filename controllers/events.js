@@ -22,7 +22,7 @@ var allowedDateInfo = {
   ]
 };
 
-/*var URLstandards = { 
+var URLstandards = { 
   protocols: ['http','https'], 
   require_tld: true, 
   require_protocol: true, 
@@ -30,7 +30,7 @@ var allowedDateInfo = {
   host_whitelist: false, 
   host_blacklist: false, 
   allow_trailing_dot: false
-}*/
+}
 
 /**
  * Controller that renders a list of events in HTML.
@@ -101,14 +101,14 @@ function saveEvent(request, response){
   if (validator.isInt(request.body.year) === false) {
     contextData.errors.push('Your year should be an integer.');
   }
-  /*
-  if (validator.isURL(request.body.image)) === false) {
+  
+  if (validator.isURL(request.body.image,URLstandards) === false) {
     contextData.errors.push('You have entered an invalid URL.');
   }
 
-  if (validator.matches(request.body.image,'.gif') || validator.matches(request.body.image,'.png')) === false) {
+  if ((validator.matches(request.body.image,'.gif') || validator.matches(request.body.image,'.png')) === false) {
     contextData.errors.push('Your image must be either a GIF or PNG.');
-  }*/
+  }
 
   if (contextData.errors.length === 0) {
     var newEvent = {
