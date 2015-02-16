@@ -22,7 +22,7 @@ var allowedDateInfo = {
   ]
 };
 
-var URLstandards = { 
+/*var URLstandards = { 
   protocols: ['http','https'], 
   require_tld: true, 
   require_protocol: true, 
@@ -30,7 +30,7 @@ var URLstandards = {
   host_whitelist: false, 
   host_blacklist: false, 
   allow_trailing_dot: false
-}
+}*/
 
 /**
  * Controller that renders a list of events in HTML.
@@ -102,7 +102,7 @@ function saveEvent(request, response){
     contextData.errors.push('Your year should be an integer.');
   }
   
-  if (validator.isURL(request.body.image,URLstandards)) === false) {
+  if (validator.isURL(request.body.image)) === false) {
     contextData.errors.push('You have entered an invalid URL.');
   }
   /*
