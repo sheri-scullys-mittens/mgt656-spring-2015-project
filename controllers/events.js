@@ -22,10 +22,11 @@ var allowedDateInfo = {
   ]
 };
 
-var URLstandards = { protocols: ['http','https'], 
+var URLstandards = { 
+  protocols: ['http','https'], 
   require_tld: true, 
-  require_protocol: false, 
-  allow_underscores: false, 
+  require_protocol: true, 
+  allow_underscores: true, 
   host_whitelist: false, 
   host_blacklist: false, 
   allow_trailing_dot: false
@@ -105,7 +106,7 @@ function saveEvent(request, response){
     contextData.errors.push('You have entered an invalid URL.');
   }
   
-  if (validator.matches(request.body.image, '.gif', '.png')) === false) {
+  if (validator.matches(request.body.image,'.gif') || validator.matches(request.body.image,'.png')) === false) {
     contextData.errors.push('Your image must be either a GIF or PNG.');
   }
 
