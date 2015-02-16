@@ -102,13 +102,13 @@ function saveEvent(request, response){
     contextData.errors.push('Your year should be an integer.');
   }
   
-  if (validator.isURL(request.body.image)) === false) {
+  if (validator.isURL(request.body.image,URLstandards)) === false) {
     contextData.errors.push('You have entered an invalid URL.');
   }
-  
+  /*
   if (validator.matches(request.body.image,'.gif') || validator.matches(request.body.image,'.png')) === false) {
     contextData.errors.push('Your image must be either a GIF or PNG.');
-  }
+  }*/
 
   if (contextData.errors.length === 0) {
     var newEvent = {
