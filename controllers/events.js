@@ -22,6 +22,15 @@ var allowedDateInfo = {
   ]
 };
 
+var URLstandards = { protocols: ['http','https'], 
+  require_tld: true, 
+  require_protocol: false, 
+  allow_underscores: false, 
+  host_whitelist: false, 
+  host_blacklist: false, 
+  allow_trailing_dot: false
+}
+
 /**
  * Controller that renders a list of events in HTML.
  */
@@ -88,8 +97,16 @@ function saveEvent(request, response){
     contextData.errors.push('Year must be 2015 or 2016.');
   }
   
-   if (validator.isInt(request.body.year) === false) {
+  if (validator.isInt(request.body.year) === false) {
     contextData.errors.push('Your year should be an integer.');
+  }
+  
+  if (validator.isURL(request.body.image,URLstandards)) === false) {
+    contextData.errors.push('You have entered an invalid URL.');
+  }
+  
+  if (validator.matches(request.body.image, '.gif', '.png')) === false) {
+    contextData.errors.push('Your image must be either a GIF or PNG.');
   }
 
   if (contextData.errors.length === 0) {
