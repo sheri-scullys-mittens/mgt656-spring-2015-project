@@ -101,11 +101,11 @@ function saveEvent(request, response){
   if (validator.isInt(request.body.year) === false) {
     contextData.errors.push('Your year should be an integer.');
   }
-  
+  /*
   if (validator.isURL(request.body.image)) === false) {
     contextData.errors.push('You have entered an invalid URL.');
   }
-  /*
+
   if (validator.matches(request.body.image,'.gif') || validator.matches(request.body.image,'.png')) === false) {
     contextData.errors.push('Your image must be either a GIF or PNG.');
   }*/
