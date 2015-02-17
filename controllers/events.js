@@ -127,7 +127,6 @@ function saveEvent(request, response){
     events.all.push(newEvent);
     response.redirect('/events/' + newEvent.id);
   }else{
-    
     response.render('create-event.html', contextData);
   }
 }
@@ -137,7 +136,7 @@ function eventDetail (request, response) {
   if (ev === null) {
     response.status(404).send('No such event');
   }
-  response.render('event-detail.html', ev);
+  response.render('event-detail.html', {event: ev});
 }
 
 function rsvp (request, response){
@@ -146,12 +145,16 @@ function rsvp (request, response){
     response.status(404).send('No such event');
   }
 
-  if(validator.isEmail(request.body.email)){
+  if (
+    (validator.isEmail(validator.normalizeEmail(request.body.email))) && 
+    (validator.matches(validator.normalizeEmail(request.body.email),'@yale.edu'))
+  ) {
     ev.attending.push(request.body.email);
     response.redirect('/events/' + ev.id);
-  }else{
+  }
+  else{
     var contextData = {errors: [], event: ev};
-    contextData.errors.push('Invalid email');
+    contextData.errors.push('You must enter a valid Yale email.');
     response.render('event-detail.html', contextData);    
   }
 

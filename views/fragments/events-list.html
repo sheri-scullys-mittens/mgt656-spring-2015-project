@@ -1,6 +1,6 @@
 <ul>
   {% for event in events %}
-    <li class="event">
+    <li class="event" id="event-{{event.id}}">
       <p class="title">
         <a href="/events/{{event.id}}" id="event-{{event.id}}">
           {{event.title}}

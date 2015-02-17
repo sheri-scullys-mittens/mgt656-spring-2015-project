@@ -4,24 +4,26 @@
 
 <div class="content">
 
-  <h3 id="title">{{title}}</h3>
+  <h3>{{event.title}}</h3>
+  
+  <h1 style="display:none" id="title">{{event.title}}</h1>
   
   <p>
-    <img src="{{image}}" id="image">
+    <img src="{{event.image}}" id="image">
   </p>
   
   <p>
-    <time datetime="{{date}}" id=""{{date}}"">Date: {{date|prettyDate}}</time>
+   <time datetime="{{event.date}}" id="{{event.date}}"><span id="date" class"label-text">Date:</span> {{event.date|prettyDate}}</time>
   </p>
   
   <p>
-    Location: {{location}}
+    <span id="location" class"label-text">Location:</span> {{event.location}}
   </p>
   
   <p>
-    Attending: {{attending.length}} people
-    <ul>
-      {% for i in attending %}
+    <span class"label-text">Attending:</span> {{event.attending.length}} people
+    <ul id="attendees">
+      {% for i in event.attending %}
       <li>
         {{i}}
       </li>
@@ -30,9 +32,31 @@
   </p>
   
   <p>
-    <a href="donate" class="donation">Donate now!</a>
+    {% if errors %}
+      <p>Please correct the following errors!</p>
+      <ul>
+        {% for error in errors %}
+          <li class="form-errors">{{error}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </p>
+    
+  <p>
+    <form id="rsvp" method="POST">
+      <span class="form-elements">
+        <input type="text" name="email" placeholder="Enter Email" size="50">
+      </span>
+      <span class="form-elements">
+        <label for="submit"></label> <input type="submit" id="Submit" value="Submit">
+      </span>
+    </form>
   </p>
   
+  <p>
+    <a href="donate" class="donation">Donate now!</a>
+  </p>
+
 </div>
 
 {% endblock %}
