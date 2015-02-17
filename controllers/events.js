@@ -30,7 +30,7 @@ var URLstandards = {
   host_whitelist: false, 
   host_blacklist: false, 
   allow_trailing_dot: false
-}
+};
 
 /**
  * Controller that renders a list of events in HTML.
@@ -63,7 +63,7 @@ function newEvent(request, response){
 function saveEvent(request, response){
   var contextData = {
     errors: [],
-    title: "Create New Event"
+    title: 'Create New Event'
   };
 
   if (validator.isLength(request.body.title, 5, 50) === false) {

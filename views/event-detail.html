@@ -1,15 +1,23 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
+
+<div class="content">
+
+  <h3 id="title">{{title}}</h3>
+  
   <p>
-    <img src="{{image}}">
+    <img src="{{image}}" id="image">
   </p>
+  
   <p>
-    <time datetime="{{date}}">Date: {{date|prettyDate}}</time>
+    <time datetime="{{date}}" id=""{{date}}"">Date: {{date|prettyDate}}</time>
   </p>
+  
   <p>
     Location: {{location}}
   </p>
+  
   <p>
     Attending: {{attending.length}} people
     <ul>
@@ -20,7 +28,11 @@
       {% endfor %}
     </ul>
   </p>
+  
   <p>
     <a href="donate" class="donation">Donate now!</a>
   </p>
+  
+</div>
+
 {% endblock %}

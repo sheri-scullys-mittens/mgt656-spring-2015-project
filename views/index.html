@@ -1,18 +1,8 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
+  <h3>Upcoming Events</h3>
   <p>
-    Welcome to Sheri Scully's Mittens! A poor woman's clone of Eventbrite.
-  </p>
-  <p>
-    Check out the <a href="/about">About us</a> page
-    as well as the <a href="/events">Events</a> page.
-  </p>
-  <p>
-    See the list of events below:
     {% include "fragments/events-list.html" %}
-  </p>
-  <p>
-    <a id="new" href="/events/new">Create a new event</a>
   </p>
 {% endblock %}

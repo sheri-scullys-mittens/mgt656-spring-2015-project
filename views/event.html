@@ -1,15 +1,9 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
+  <h3>All Events</h3>
   <p>
-    The time is now {{time}}.
-  </p>
-  <p>
-    List of events
     {% include "fragments/events-list.html" %}
-  </p>
-  <p>
-    <a href="/events/new">Create a new event</a>
   </p>
 
 {% endblock %}

@@ -2,12 +2,16 @@
 
 {% block mainContent %}
 
+<div class="content">
+   
+  <h3>Create An Event</h3>
+
   {% if errors %}
-    <div class="form-errors">
+    <div>
       <p>Please correct the following errors!</p>
       <ul>
         {% for error in errors %}
-          <li>{{error}}</li>
+          <li class="form-errors">{{error}}</li>
         {% endfor %}
       </ul>
     </div>
@@ -15,19 +19,37 @@
   
 	<form id="create-event" method="POST">
 	  <p>
-      <label for="title">Event title:</label>
-      <input type="text" name="title" placeholder="Event title" size="50">
+	    <span class="form-element">
+        <label for="title" class="label-text">Title:</label>
+      </span>
+      <span class="form-element">
+        <input type="text" name="title" placeholder="Event Title" size="50">
+      </span>
     </p>
     <p>
-      <label for="location">Location:</label>      
-      <input type="text" name="location" placeholder="Event location" size="50">
+      <span class="form-element">
+        <label for="location" class="label-text">Location:</label>
+      </span>
+      <span class="form-element">
+        <input type="text" name="location" placeholder="Event Location" size="50">
+      </span>
     </p>
     <p>
-      <label for="image">Image:</label>      
-      <input type="text" name="image" placeholder="Image URL" size="50">
+      <span class="form-element">
+        <label for="image" class="label-text">Image:</label>
+      </span>
+      <span class="form-element">
+        <input type="text" name="image" placeholder="Event Image URL" size="50">
+      </span>
     </p>
     <p>
-    Date:  <label for="month">MM</label> 
+    <span class="form-element">
+      <span class="label-text">
+        Date:  
+      </span>
+    </span>
+    <span class="form-elements">
+      <label for="month" class="hide">MM</label> 
       <select type="select" name="month" id="month">
         <option value="0">January</option>
         <option value="1">February</option>
@@ -42,7 +64,7 @@
         <option value="10">November</option>
         <option value="11">December</option>
       </select>
-       <label for="day">DD</label> 
+       <label for="day" class="hide">DD</label> 
       <select type="select" name="day" id="day">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -76,14 +98,22 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select>, 
-       <label for="year">YYYY</label> 
+       <label for="year" class="hide">YYYY</label> 
       <select type="select" name="year" id="year">
         <option value="2015">2015</option>
         <option value="2016">2016</option>
       </select> 
+      </span>
       </p>
-      <p>Time: 
-      <label for="hour">hh</label> 
+      
+      <p>
+      <span class="label-text">
+        <span class="form-element">
+          Time:
+        </span>
+      </span>
+      <span class="form-elements">
+      <label for="hour" class="hide">HH</label> 
       <select type="select" name="hour" id="hour">
         <option value="0">00</option>
         <option value="1">01</option>
@@ -110,16 +140,22 @@
         <option value="22">22</option>
         <option value="23">23</option>
       </select>
-      : <label for="minute">mm</label> 
+      : <label for="minute" class="hide">MM</label> 
       <select type="select" name="minute" id="minute">
         <option value="0">00</option>
         <option value="30">30</option>
       </select>
+    </span>
     </p>
     <p>
-    <label for="submit">Click here to</label> <input type="submit" id="submit" value="create event!">
+      <span class="form-element"></span>
+      <span class="form-element">
+        <label for="submit"></label> <input type="submit" id="submit" value="Create Event">
+      </span>
     </p>
   </form>
+
+</div>
 
 {% endblock %}
 
