@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'Rochester';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Rochester'), local('Rochester-Regular'), url(http://fonts.gstatic.com/s/rochester/v6/nE50b4-SbQ54pks-8vOplyZ2oysoEQEeKwjgmXLRnTc.ttf) format('truetype');
+}
+
 header {
   text-align: left;
   background-size: cover;
-  background-color: rgba(255,0,48,.7);
+  background-color: rgba(255,0,48,.6);
   vertical-align: middle;
 }
 
 body {
-  background-image: url('http://lifeasahuman.com/files/2012/07/Metropolitan_Opera_House_a_concert_by_pianist_Josef_Hofmann_-_NARA_541890_-_Edit.jpg');
+  background-image: url('/background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -166,7 +173,7 @@ li[class="event"] {
   max-width: 200px;
   padding: 10px;
   margin: 20px;
-  background: rgba(255,0,48,.7);;
+  background: rgba(255,0,48,.6);;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
