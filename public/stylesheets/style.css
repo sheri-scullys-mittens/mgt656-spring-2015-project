@@ -10,6 +10,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fontfix {
+    from { opacity: 1; }
+    to   { opacity: 1; }
 }
 
 .content-background {
@@ -45,6 +55,7 @@ h1 {
   vertical-align: inherit;
   margin: 10px 0px 10px 0px;
   padding: 10px;
+  text-shadow: -1px -1px #aa3030;
 }
 
 #logo {
@@ -66,6 +77,7 @@ h2 {
   color:  white;
   vertical-align: inherit;
   margin: 10px 0px 10px 0px;
+  text-shadow: -1px -1px #aa3030;
 }
 
 h3 {
@@ -86,8 +98,7 @@ p {
 li {
   font-size: 16px;
   color: white;
-    max-width: 500px;
-
+  max-width: 500px;
 }
 
 label {
