@@ -71,8 +71,10 @@ h1 {
   vertical-align: inherit;
 }
 
-#image {
-  max-width: 300px;
+.event-image {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
