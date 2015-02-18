@@ -13,15 +13,15 @@
   </p>
   
   <p>
-   <time datetime="{{event.date}}" id="{{event.date}}"><span id="date" class"label-text">Date:</span> {{event.date|prettyDate}}</time>
+   <time datetime="{{event.date}}" id="{{event.date}}"><span id="date" class="label-text">When:</span> {{event.date|prettyDate}}</time>
   </p>
   
   <p>
-    <span id="location" class"label-text">Location:</span> {{event.location}}
+    <span id="location" class="label-text">Where:</span> {{event.location}}
   </p>
   
   <p>
-    <span class"label-text">Attending:</span> {{event.attending.length}} people
+    <span class="label-text">Attending:</span> {{event.attending.length}} people
     <ul id="attendees">
       {% for i in event.attending %}
       <li>
@@ -45,7 +45,7 @@
   <p>
     <form id="rsvp" method="POST">
       <span class="form-elements">
-        <input type="text" name="email" placeholder="Enter Email" size="50">
+        <input type="text" name="email" placeholder="Enter Email to RSVP" size="40">
       </span>
       <span class="form-elements">
         <label for="submit"></label> <input type="submit" id="Submit" value="Submit">
@@ -54,7 +54,7 @@
   </p>
   
   <p>
-    <a href="donate" class="donation">Donate now!</a>
+    <a href="/events/{{event.id}}/donate" class="donation">Donate now!</a>
   </p>
 
 </div>

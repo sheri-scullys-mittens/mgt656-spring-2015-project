@@ -8,7 +8,7 @@ var events = require('../models/events');
 function index (request, response) {
   var contextData = {
     'title': 'Home',
-    'events': events.all
+    'events': events.upcoming()
   };
   response.render('index.html', contextData);
 }

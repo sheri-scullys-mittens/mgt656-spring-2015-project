@@ -176,6 +176,13 @@ function eventAPI (request, response){
   } 
 }
 
+function donate(request, response){
+  var contextData = {
+    'title': 'Donate'
+  };
+  response.render('donate.html', contextData);
+}
+
 /**
  * Export all our functions (controllers in this case, because they
  * handles requests and render responses).
@@ -186,5 +193,6 @@ module.exports = {
   'newEvent': newEvent,
   'saveEvent': saveEvent,
   'rsvp': rsvp,
-  'eventAPI': eventAPI
+  'eventAPI': eventAPI,
+  'donate': donate
 };
