@@ -1,9 +1,45 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
-  <h3>All Events</h3>
+  <h3>Upcoming Events</h3>
   <p>
-    {% include "fragments/events-list.html" %}
+    <ul>
+      {% for event in events %}
+        <li class="event" id="event-{{event.id}}">
+          <p class="title">
+            <a href="/events/{{event.id}}" id="event-{{event.id}}">
+              {{event.title}}
+            </a>
+          </p>
+          <p class="date">
+            <time datetime="{{event.date}}">{{event.date|prettyDate}}</time>
+          </p>
+          <p class="attending">
+            {{event.attending.length}} attending so far
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
   </p>
-
+  <h3>Past Events</h3>
+  <p>
+    <ul>
+      {% for event in past %}
+        <li class="event" id="event-{{event.id}}">
+          <p class="title">
+            <a href="/events/{{event.id}}" id="event-{{event.id}}">
+              {{event.title}}
+            </a>
+          </p>
+          <p class="date">
+            <time datetime="{{event.date}}">{{event.date|prettyDate}}</time>
+          </p>
+          <p class="attending">
+            {{event.attending.length}} attending so far
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </p>
+  
 {% endblock %}

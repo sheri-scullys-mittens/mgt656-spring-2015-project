@@ -38,7 +38,8 @@ var URLstandards = {
 function listEvents(request, response) {
   var contextData = {
     'title': 'Events',
-    'events': events.all,
+    'past': events.past(),
+    'events': events.upcoming()
   };
   response.render('event.html', contextData);
 }

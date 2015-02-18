@@ -122,9 +122,25 @@ function upcoming () {
   return results;
 }
 
+function past () {
+  
+  var today = new Date();
+  
+  var results = [];
+  
+  for(var i=0; i<allEvents.length; i++) {
+    if(allEvents[i].date < today) {
+      results.push(allEvents[i]);
+    }
+  }
+  
+  return results;
+}
+
 module.exports = exports = {
   all: allEvents,
   getById: getById,
   search: search,
-  upcoming: upcoming
+  upcoming: upcoming,
+  past: past
 };
