@@ -36,11 +36,9 @@ var URLstandards = {
  * Controller that renders a list of events in HTML.
  */
 function listEvents(request, response) {
-  var currentTime = new Date();
   var contextData = {
     'title': 'Events',
     'events': events.all,
-    'time': currentTime
   };
   response.render('event.html', contextData);
 }
@@ -126,7 +124,8 @@ function saveEvent(request, response){
     newEvent.date.setFullYear(request.body.year);
     events.all.push(newEvent);
     response.redirect('/events/' + newEvent.id);
-  }else{
+  }
+  else {
     response.render('create-event.html', contextData);
   }
 }
@@ -145,19 +144,36 @@ function rsvp (request, response){
     response.status(404).send('No such event');
   }
 
-  if (
-    (validator.isEmail(validator.normalizeEmail(request.body.email))) && 
-    (validator.matches(validator.normalizeEmail(request.body.email),'@yale.edu'))
-  ) {
+  var contextData = {
+    errors: [], 
+    event: ev
+  };
+
+  if (validator.isEmail(request.body.email) === false) {
+    contextData.errors.push('You must enter a valid email address.');
+  }
+  else if ((request.body.email.toLowerCase().indexOf('@yale.edu', request.body.email.length - '@yale.edu'.length) !== -1) === false) {
+    contextData.errors.push('You must enter a Yale email address.');
+  }
+  
+  if (contextData.errors.length === 0) {
     ev.attending.push(request.body.email);
     response.redirect('/events/' + ev.id);
   }
-  else{
-    var contextData = {errors: [], event: ev};
-    contextData.errors.push('You must enter a valid Yale email.');
+  else {
     response.render('event-detail.html', contextData);    
   }
 
+}
+
+function eventAPI (request, response){  
+  if (typeof(request.query.search) === "undefined") {
+    response.send(JSON.stringify({events: events.all},null,'\t'));
+  }
+  else {
+    var results = events.search(request.query.search);
+    response.send(JSON.stringify({events: results},null,'\t'));
+  } 
 }
 
 /**
@@ -169,5 +185,6 @@ module.exports = {
   'eventDetail': eventDetail,
   'newEvent': newEvent,
   'saveEvent': saveEvent,
-  'rsvp': rsvp
+  'rsvp': rsvp,
+  'eventAPI': eventAPI
 };

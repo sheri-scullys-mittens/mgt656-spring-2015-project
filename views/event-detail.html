@@ -34,7 +34,7 @@
   <p>
     {% if errors %}
       <p>Please correct the following errors!</p>
-      <ul>
+      <ul class="form-errors">
         {% for error in errors %}
           <li class="form-errors">{{error}}</li>
         {% endfor %}

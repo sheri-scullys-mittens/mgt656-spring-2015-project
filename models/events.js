@@ -54,7 +54,21 @@ function getById (id) {
   return null;
 }
 
+function search (query) {
+  
+  var results = [];
+  
+  for(var i=0; i<allEvents.length; i++) {
+    if(allEvents[i].title.toLowerCase().indexOf(query.toLowerCase()) != -1) {
+      results.push(allEvents[i]);
+    }
+  }
+  
+  return results;
+}
+
 module.exports = exports = {
   all: allEvents,
-  getById: getById
+  getById: getById,
+  search: search
 };
